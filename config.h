@@ -5,7 +5,7 @@
 #define HAVE_FEATURES_H 1
 
 /* Define to 1 if you have the <gnu/stubs-32.h> header file. */
-/* #undef HAVE_GNU_STUBS_32_H */
+#define HAVE_GNU_STUBS_32_H 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -36,7 +36,7 @@
 
 /* Define to 1 if you have the <x86_64-linux-gnu/gnu/stubs-32.h> header file.
    */
-/* #undef HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H */
+#define HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H 1
 
 /* Define to 1 if you have the <x86_64-linux-gnu/gnu/stubs.h> header file. */
 #define HAVE_X86_64_LINUX_GNU_GNU_STUBS_H 1

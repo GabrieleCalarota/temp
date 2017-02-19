@@ -1,0 +1,6 @@
+$ autoconf
+$ ./configure
+$ make
+$ ./run.sh
+$ uarm
+

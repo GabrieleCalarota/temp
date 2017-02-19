@@ -124,7 +124,6 @@ AM_V_CC = $(am__v_CC_$(V))
 am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))
 am__v_CC_0 = @echo "  CC      " $@;
 am__v_CC_1 = 
-CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
@@ -246,13 +245,12 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-AM_CFLAGS = -Wall -mcpu=arm7tdmi
 STDINT_PATH = ../include/stdint.h
 #STDINT_PATH = /usr/include/stdint.h -I /usr/include/ -I /usr/include/gnu -I /usr/include/x86_64-linux-gnu/ -I /usr/include/x86_64-linux-gnu/gnu 
-LD = arm-none-eabi-ld
+AM_CPPFLAGS = -I ../include -I /usr/include/uarm/ -include $(STDINT_PATH)
+CCLD = arm-none-eabi-ld
 AM_LDFLAGS = -T /usr/include/uarm/ldscripts/elf32ltsarm.h.uarmcore.x /usr/include/uarm/crtso.o /usr/include/uarm/libuarm.o
 kernel_SOURCES = p1test.c ../include/mikabooq.h ../include/const.h ../include/listx.h /usr/include/uarm/uARMtypes.h /usr/include/uarm/uARMconst.h /usr/include/uarm/libuarm.h mikabooq.c 
-AM_CPPFLAGS = -I ../include -I /usr/include/uarm/ -include $(STDINT_PATH)
 all: all-am
 
 .SUFFIXES:
@@ -266,9 +264,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/Makefile
+	  $(AUTOMAKE) --foreign src/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \

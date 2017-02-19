@@ -1,11 +1,11 @@
-AM_CFLAGS = -Wall -mcpu=arm7tdmi
 if HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H  
 STDINT_PATH = /usr/include/stdint.h -I /usr/include/ -I /usr/include/gnu -I /usr/include/x86_64-linux-gnu/ -I /usr/include/x86_64-linux-gnu/gnu 
 else
 STDINT_PATH =  ../include/stdint.h
 endif
+AM_CPPFLAGS = -Wall -mcpu=arm7tdmi
 CC = arm-none-eabi-gcc
-LD = arm-none-eabi-ld
+CCLD = arm-none-eabi-ld
 AM_LDFLAGS =  -T /usr/include/uarm/ldscripts/elf32ltsarm.h.uarmcore.x /usr/include/uarm/crtso.o /usr/include/uarm/libuarm.o
 
 bin_PROGRAMS = kernel
