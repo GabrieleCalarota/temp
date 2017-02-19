@@ -626,8 +626,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
-HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_FALSE
-HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_TRUE
+USE_GNU_STUBS_32_H_FALSE
+USE_GNU_STUBS_32_H_TRUE
 EGREP
 GREP
 CPP
@@ -694,7 +694,6 @@ infodir
 docdir
 oldincludedir
 includedir
-runstatedir
 localstatedir
 sharedstatedir
 sysconfdir
@@ -767,7 +766,6 @@ datadir='${datarootdir}'
 sysconfdir='${prefix}/etc'
 sharedstatedir='${prefix}/com'
 localstatedir='${prefix}/var'
-runstatedir='${localstatedir}/run'
 includedir='${prefix}/include'
 oldincludedir='/usr/include'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
@@ -1020,15 +1018,6 @@ do
   | -silent | --silent | --silen | --sile | --sil)
     silent=yes ;;
 
-  -runstatedir | --runstatedir | --runstatedi | --runstated \
-  | --runstate | --runstat | --runsta | --runst | --runs \
-  | --run | --ru | --r)
-    ac_prev=runstatedir ;;
-  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
-  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
-  | --run=* | --ru=* | --r=*)
-    runstatedir=$ac_optarg ;;
-
   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
     ac_prev=sbindir ;;
   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
@@ -1166,7 +1155,7 @@ fi
 for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
 		datadir sysconfdir sharedstatedir localstatedir includedir \
 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
-		libdir localedir mandir runstatedir
+		libdir localedir mandir
 do
   eval ac_val=\$$ac_var
   # Remove trailing slashes.
@@ -1319,7 +1308,6 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
-  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -2171,7 +2159,7 @@ ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
-am__api_version='1.15'
+am__api_version='1.14'
 
 ac_aux_dir=
 for ac_dir in "$srcdir" "$srcdir/.." "$srcdir/../.."; do
@@ -2372,8 +2360,8 @@ test "$program_suffix" != NONE &&
 ac_script='s/[\\$]/&&/g;s/;s,x,x,$//'
 program_transform_name=`$as_echo "$program_transform_name" | sed "$ac_script"`
 
-# Expand $ac_aux_dir to an absolute path.
-am_aux_dir=`cd "$ac_aux_dir" && pwd`
+# expand $ac_aux_dir to an absolute path
+am_aux_dir=`cd $ac_aux_dir && pwd`
 
 if test x"${MISSING+set}" != xset; then
   case $am_aux_dir in
@@ -2392,7 +2380,7 @@ else
 $as_echo "$as_me: WARNING: 'missing' script is too old or missing" >&2;}
 fi
 
-if test x"${install_sh+set}" != xset; then
+if test x"${install_sh}" != xset; then
   case $am_aux_dir in
   *\ * | *\	*)
     install_sh="\${SHELL} '$am_aux_dir/install-sh'" ;;
@@ -2720,8 +2708,8 @@ MAKEINFO=${MAKEINFO-"${am_missing_run}makeinfo"}
 # <http://lists.gnu.org/archive/html/automake/2012-07/msg00014.html>
 mkdir_p='$(MKDIR_P)'
 
-# We need awk for the "check" target (and possibly the TAP driver).  The
-# system "awk" is bad on some platforms.
+# We need awk for the "check" target.  The system "awk" is bad on
+# some platforms.
 # Always define AMTAR for backward compatibility.  Yes, it's still used
 # in the wild :-(  We should find a proper way to deprecate it ...
 AMTAR='$${TAR-tar}'
@@ -2778,7 +2766,6 @@ END
     as_fn_error $? "Your 'rm' program is bad, sorry." "$LINENO" 5
   fi
 fi
-
 
 ac_config_headers="$ac_config_headers config.h"
 
@@ -4225,7 +4212,7 @@ fi
 done
 
 
-for ac_header in stdint.h features.h gnu/stubs-32.h x86_64-linux-gnu/gnu/stubs.h x86_64-linux-gnu/gnu/stubs-32.h
+for ac_header in stdint.h features.h gnu/stubs-32.h gnu/stubs.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
@@ -4233,17 +4220,19 @@ if eval test \"x\$"$as_ac_Header"\" = x"yes"; then :
   cat >>confdefs.h <<_ACEOF
 @%:@define `$as_echo "HAVE_$ac_header" | $as_tr_cpp` 1
 _ACEOF
- 
+ HAVE_GNU_STUBS_32_H=1
+else
+  HAVE_GNU_STUBS_32_H=0
 fi
 
 done
 
- if test $HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H = 1; then
-  HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_TRUE=
-  HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_FALSE='#'
+ if test "$HAVE_GNU_STUBS_32_H" -eq 1; then
+  USE_GNU_STUBS_32_H_TRUE=
+  USE_GNU_STUBS_32_H_FALSE='#'
 else
-  HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_TRUE='#'
-  HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_FALSE=
+  USE_GNU_STUBS_32_H_TRUE='#'
+  USE_GNU_STUBS_32_H_FALSE=
 fi
 
 
@@ -4526,8 +4515,8 @@ if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_TRUE}" && test -z "${HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_FALSE}"; then
-  as_fn_error $? "conditional \"HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H\" was never defined.
+if test -z "${USE_GNU_STUBS_32_H_TRUE}" && test -z "${USE_GNU_STUBS_32_H_FALSE}"; then
+  as_fn_error $? "conditional \"USE_GNU_STUBS_32_H\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 

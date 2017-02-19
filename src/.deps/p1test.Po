@@ -1,13 +1,15 @@
 p1test.o: p1test.c ../include/stdint.h /usr/include/uarm/uARMconst.h \
- /usr/include/uarm/uARMtypes.h /usr/include/uarm/libuarm.h \
- ../include/const.h ../include/listx.h ../include/mikabooq.h \
- ../include/stdint.h
+ /usr/include/uarm/uARMtypes.h /usr/include/uarm/uARMconst.h \
+ /usr/include/uarm/libuarm.h ../include/const.h ../include/listx.h \
+ ../include/mikabooq.h ../include/stdint.h
 
 ../include/stdint.h:
 
 /usr/include/uarm/uARMconst.h:
 
 /usr/include/uarm/uARMtypes.h:
+
+/usr/include/uarm/uARMconst.h:
 
 /usr/include/uarm/libuarm.h:
 

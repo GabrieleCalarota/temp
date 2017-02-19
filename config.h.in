@@ -6,6 +6,9 @@
 /* Define to 1 if you have the <gnu/stubs-32.h> header file. */
 #undef HAVE_GNU_STUBS_32_H
 
+/* Define to 1 if you have the <gnu/stubs.h> header file. */
+#undef HAVE_GNU_STUBS_H
+
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
@@ -32,13 +35,6 @@
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
-
-/* Define to 1 if you have the <x86_64-linux-gnu/gnu/stubs-32.h> header file.
-   */
-#undef HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H
-
-/* Define to 1 if you have the <x86_64-linux-gnu/gnu/stubs.h> header file. */
-#undef HAVE_X86_64_LINUX_GNU_GNU_STUBS_H
 
 /* Name of package */
 #undef PACKAGE

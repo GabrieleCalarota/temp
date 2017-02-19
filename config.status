@@ -437,11 +437,11 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/tmp/temp'
+ac_pwd='/home/gabriele/temp'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
-AWK='gawk'
+AWK='mawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -619,8 +619,8 @@ S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
-S["HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_FALSE"]=""
-S["HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H_TRUE"]="#"
+S["USE_GNU_STUBS_32_H_FALSE"]="#"
+S["USE_GNU_STUBS_32_H_TRUE"]=""
 S["EGREP"]="/bin/grep -E"
 S["GREP"]="/bin/grep"
 S["CPP"]="gcc -E"
@@ -650,17 +650,17 @@ S["am__tar"]="$${TAR-tar} chof - \"$$tardir\""
 S["AMTAR"]="$${TAR-tar}"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
-S["AWK"]="gawk"
+S["AWK"]="mawk"
 S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /tmp/temp/install-sh"
-S["MAKEINFO"]="${SHELL} /tmp/temp/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /tmp/temp/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /tmp/temp/missing automake-1.15"
-S["AUTOCONF"]="${SHELL} /tmp/temp/missing autoconf"
-S["ACLOCAL"]="${SHELL} /tmp/temp/missing aclocal-1.15"
+S["install_sh"]="${SHELL} /home/gabriele/temp/install-sh"
+S["MAKEINFO"]="${SHELL} /home/gabriele/temp/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/gabriele/temp/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /home/gabriele/temp/missing automake-1.14"
+S["AUTOCONF"]="${SHELL} /home/gabriele/temp/missing autoconf"
+S["ACLOCAL"]="${SHELL} /home/gabriele/temp/missing aclocal-1.14"
 S["VERSION"]="0.0.1"
 S["PACKAGE"]="mikaboo"
 S["CYGPATH_W"]="echo"
@@ -687,7 +687,6 @@ S["infodir"]="${datarootdir}/info"
 S["docdir"]="${datarootdir}/doc/${PACKAGE_TARNAME}"
 S["oldincludedir"]="/usr/include"
 S["includedir"]="${prefix}/include"
-S["runstatedir"]="${localstatedir}/run"
 S["localstatedir"]="${prefix}/var"
 S["sharedstatedir"]="${prefix}/com"
 S["sysconfdir"]="${prefix}/etc"
@@ -769,8 +768,7 @@ D["HAVE_UNISTD_H"]=" 1"
 D["HAVE_STDINT_H"]=" 1"
 D["HAVE_FEATURES_H"]=" 1"
 D["HAVE_GNU_STUBS_32_H"]=" 1"
-D["HAVE_X86_64_LINUX_GNU_GNU_STUBS_H"]=" 1"
-D["HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H"]=" 1"
+D["HAVE_GNU_STUBS_H"]=" 1"
   for (key in D) D_is_set[key] = 1
   FS = ""
 }
