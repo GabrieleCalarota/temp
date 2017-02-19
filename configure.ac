@@ -14,7 +14,7 @@ AC_PROG_CC
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdint.h features.h gnu/stubs-32.h x86_64-linux-gnu/gnu/stubs.h x86_64-linux-gnu/gnu/stubs-32.h])
-AM_CONDITIONAL([HAVE_STDINT_H], [test $HAVE_STDINT_H = 1])
+AM_CONDITIONAL([HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H], [test $HAVE_X86_64_LINUX_GNU_GNU_STUBS_32_H = 1])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_INLINE
